@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NutriPulse — AI Nutrition Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-profile">
+
+  <!-- ── Nav ── -->
+  <nav class="topnav">
+    <div class="topnav-inner">
+      <div class="brand">
+        <svg class="brand-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="16" cy="16" r="15" fill="#16a34a" opacity=".12"/>
+          <path d="M10 22 C10 16 14 10 16 10 C18 10 22 16 22 22" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M13 18 Q16 14 19 18" stroke="#16a34a" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <circle cx="16" cy="24" r="1.5" fill="#16a34a"/>
+        </svg>
+        <span class="brand-name">NutriPulse</span>
+      </div>
+      <span class="nav-badge">IBM Granite · watsonx.ai</span>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Powered by IBM Granite AI</p>
+      <h1 class="hero-title">Your Personalised<br/>Nutrition Plan</h1>
+      <p class="hero-sub">Tell us about yourself and get a science-backed daily meal plan in under 30 seconds — tailored to your goals, budget, and taste.</p>
+    </div>
+  </section>
+
+  <!-- ── Form ── -->
+  <main class="profile-main">
+    <form id="profileForm" novalidate>
+
+      <!-- Card 1: About You -->
+      <div class="form-card">
+        <div class="form-card-header">
+          <div class="step-badge">1</div>
+          <div>
+            <h2 class="form-card-title">About You</h2>
+            <p class="form-card-sub">Basic information to personalise your plan</p>
+          </div>
+        </div>
+
+        <div class="field-grid">
+          <div class="field">
+            <label for="age">Age <span class="req">*</span></label>
+            <div class="input-wrap">
+              <input type="number" id="age" name="age" min="10" max="100"
+                     placeholder="e.g. 22" required />
+              <span class="input-unit">yrs</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="goal">Health Goal <span class="req">*</span></label>
+            <select id="goal" name="goal" required>
+              <option value="">Select your goal…</option>
+              <option value="weight_loss">🔥 Lose Weight</option>
+              <option value="weight_gain">💪 Gain Weight / Build Muscle</option>
+              <option value="maintenance">⚖️ Maintain Weight</option>
+              <option value="muscle_building">🏋️ Build Muscle Mass</option>
+              <option value="better_health">🌿 Improve Overall Health</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="dietary_preference">Dietary Preference <span class="req">*</span></label>
+            <select id="dietary_preference" name="dietary_preference" required>
+              <option value="">Select preference…</option>
+              <option value="vegetarian">🥦 Vegetarian</option>
+              <option value="vegan">🌱 Vegan</option>
+              <option value="non-vegetarian">🍗 Non-Vegetarian</option>
+              <option value="eggetarian">🥚 Eggetarian</option>
+              <option value="jain">🪷 Jain</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="activity_level">Activity Level <span class="req">*</span></label>
+            <select id="activity_level" name="activity_level" required>
+              <option value="">Select level…</option>
+              <option value="sedentary">🪑 Sedentary (desk job)</option>
+              <option value="light">🚶 Lightly Active (1–2×/week)</option>
+              <option value="moderate">🏃 Moderately Active (3–5×/week)</option>
+              <option value="very_active">⚡ Very Active (6–7×/week)</option>
+              <option value="athlete">🏅 Athlete (twice daily)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Budget & Restrictions -->
+      <div class="form-card">
+        <div class="form-card-header">
+          <div class="step-badge">2</div>
+          <div>
+            <h2 class="form-card-title">Budget & Restrictions</h2>
+            <p class="form-card-sub">So we can keep recommendations practical and safe</p>
+          </div>
+        </div>
+
+        <div class="field-grid">
+          <div class="field">
+            <label for="budget">Daily Food Budget <span class="req">*</span></label>
+            <div class="input-wrap">
+              <span class="input-prefix">₹</span>
+              <input type="number" id="budget" name="budget" min="50" max="5000"
+                     placeholder="e.g. 300" required />
+              <span class="input-unit">/ day</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="allergies">Allergies / Intolerances
+            <span class="field-hint">comma-separated — leave blank if none</span>
+          </label>
+          <input type="text" id="allergies" name="allergies"
+                 placeholder="e.g. peanuts, dairy, gluten" />
+        </div>
+
+        <div class="field">
+          <label for="food_preferences">Food Preferences
+            <span class="field-hint">cuisine, ingredients, or dishes you love</span>
+          </label>
+          <input type="text" id="food_preferences" name="food_preferences"
+                 placeholder="e.g. South Indian, high protein, no onion" />
+        </div>
+
+        <div class="field">
+          <label for="health_condition">Health Condition
+            <span class="field-hint">optional — helps tailor recommendations</span>
+          </label>
+          <select id="health_condition" name="health_condition">
+            <option value="none">None</option>
+            <option value="diabetes">Diabetes</option>
+            <option value="hypertension">Hypertension</option>
+            <option value="high_cholesterol">High Cholesterol</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div class="submit-row">
+        <button type="submit" id="submitBtn" class="btn-generate">
+          <span class="btn-generate-icon" aria-hidden="true">✦</span>
+          Generate My Meal Plan
+        </button>
+        <p class="submit-note">Powered by IBM Granite via IBM watsonx.ai · Usually takes 15–30 s</p>
+      </div>
+
+      <div id="errorMsg" class="alert alert-error hidden"></div>
+
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <span>NutriPulse · IBM SkillsBuild AICTE-2026</span>
+    <span class="footer-sep">·</span>
+    <span>Problem Statement #8 — Nutrition Agent</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

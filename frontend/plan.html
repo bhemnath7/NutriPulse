@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NutriPulse — Your Meal Plan</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-plan">
+
+  <!-- ── Nav ── -->
+  <nav class="topnav">
+    <div class="topnav-inner">
+      <div class="brand">
+        <svg class="brand-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="16" cy="16" r="15" fill="#16a34a" opacity=".12"/>
+          <path d="M10 22 C10 16 14 10 16 10 C18 10 22 16 22 22" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M13 18 Q16 14 19 18" stroke="#16a34a" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <circle cx="16" cy="24" r="1.5" fill="#16a34a"/>
+        </svg>
+        <span class="brand-name">NutriPulse</span>
+      </div>
+      <div class="nav-actions">
+        <button id="regenerateBtn" class="btn-outline-sm" type="button">↺ Regenerate</button>
+        <a href="index.html" class="btn-outline-sm">← New Profile</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="plan-main">
+
+    <!-- Loading state -->
+    <div id="loadingState" class="loading-panel">
+      <div class="loading-inner">
+        <div class="pulse-rings">
+          <div class="ring ring1"></div>
+          <div class="ring ring2"></div>
+          <div class="ring ring3"></div>
+          <div class="ring-icon">✦</div>
+        </div>
+        <h2 class="loading-title">Crafting your plan…</h2>
+        <p class="loading-sub">IBM Granite is analysing your profile and preparing personalised recommendations.</p>
+        <div class="loading-steps">
+          <div class="lstep active" id="lstep1">Analysing your health profile</div>
+          <div class="lstep" id="lstep2">Calculating nutritional requirements</div>
+          <div class="lstep" id="lstep3">Building your personalised meal plan</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Plan display -->
+    <div id="planCard" class="hidden">
+
+      <!-- Summary strip -->
+      <div class="summary-strip" id="summaryStrip">
+        <div class="summary-card">
+          <span class="sc-label">Total Calories</span>
+          <span class="sc-value" id="sumCalories">—</span>
+        </div>
+        <div class="summary-card">
+          <span class="sc-label">Protein</span>
+          <span class="sc-value" id="sumProtein">—</span>
+        </div>
+        <div class="summary-card">
+          <span class="sc-label">Carbs</span>
+          <span class="sc-value" id="sumCarbs">—</span>
+        </div>
+        <div class="summary-card">
+          <span class="sc-label">Fat</span>
+          <span class="sc-value" id="sumFat">—</span>
+        </div>
+        <div class="summary-card summary-card-cost">
+          <span class="sc-label">Est. Cost</span>
+          <span class="sc-value" id="sumCost">—</span>
+        </div>
+      </div>
+
+      <!-- Meal cards grid -->
+      <div class="meal-grid" id="mealGrid">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- AI Explanation -->
+      <div class="explanation-section" id="explanationBox">
+        <div class="explanation-header">
+          <span class="expl-icon">✦</span>
+          <h3>Why this plan works for you</h3>
+        </div>
+        <p id="explanationText"></p>
+      </div>
+
+    </div>
+
+    <!-- Feedback -->
+    <div id="feedbackCard" class="feedback-panel hidden">
+      <div class="feedback-header">
+        <h3>Refine Your Plan</h3>
+        <p>Not quite right? Tell IBM Granite what to change.</p>
+      </div>
+      <div class="feedback-body">
+        <textarea id="feedbackInput" rows="3"
+          placeholder="e.g. Replace paneer with tofu · Make lunch lighter · Add more protein to breakfast · Swap dinner for something quick to cook…"></textarea>
+        <button id="feedbackBtn" class="btn-feedback" type="button">
+          ✦ Revise My Plan
+        </button>
+      </div>
+      <div id="feedbackError" class="alert alert-error hidden"></div>
+    </div>
+
+    <!-- Error state -->
+    <div id="errorState" class="error-panel hidden">
+      <div class="error-panel-inner">
+        <div class="error-icon">⚠</div>
+        <h3>Something went wrong</h3>
+        <p id="errorText"></p>
+        <a href="index.html" class="btn-generate" style="margin-top:1.5rem; display:inline-flex;">← Back to Profile</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <span>NutriPulse · IBM SkillsBuild AICTE-2026</span>
+    <span class="footer-sep">·</span>
+    <span>Problem Statement #8 — Nutrition Agent</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
