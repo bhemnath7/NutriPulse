@@ -1,8 +1,6 @@
 # NutriPulse
 
-AI-powered nutrition assistant — IBM SkillsBuild / AICTE-2026 internship submission (Problem Statement #8: Nutrition Agent).
-
-Generates personalised daily meal plans using **IBM Granite 3 8B Instruct** via **IBM watsonx.ai**.
+AI-powered nutrition assistant — Generates personalised daily meal plans using **IBM Granite 3 8B Instruct** via **IBM watsonx.ai**.
 
 ---
 
